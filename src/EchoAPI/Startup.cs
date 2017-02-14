@@ -57,10 +57,7 @@ namespace EchoAPI
             });
 
 
-            var config = new HubConfiguration
-            {
-                EnableDetailedErrors = true
-            };
+  
 
             ConfigureAkka(app);
 
@@ -71,6 +68,11 @@ namespace EchoAPI
             //var actorSystem = ActorSystem.Create("SignalRChatAPI");
             var actorSystem = CreateChatActorSystem("SignalRChatAPI");
 
+            var config = new HubConfiguration
+            {
+                EnableDetailedErrors = true
+            };
+
             var echoActor = actorSystem.ActorOf(Props.Create(() => new SignalREchoActor()), "echoActor");
 
             app.UseAppBuilder(appBuilder => appBuilder.Use((ctx, next1) =>
@@ -78,34 +80,8 @@ namespace EchoAPI
                 // make the actor system available via the owin environment
                 ctx.Environment["akka.actorsystem"] = actorSystem;
                 return next1();
-            }).MapSignalR());
+            }).MapSignalR(config));
 
-
-//            app.UseOwin(addToPipeline =>
-//            {
-//                addToPipeline(next =>
-//                {
-//                    var appBuilder = new AppBuilder();
-//                    appBuilder.Properties["builder.DefaultApp"] = next;
-//                    //((Action<IAppBuilder>)(appBuilder => appBuilder.MapSignalR(config)))(appBuilder1);
-//
-//                    appBuilder.Use((ctx, next1) =>
-//                    {
-//                        // make the actor system available via the environment
-//                        ctx.Environment["akka.actorsystem"] = actorSystem;
-//                        return next1();
-//                    }).MapSignalR(config)
-//
-//
-//                    return appBuilder.Build<AppFunc>();
-//                });
-//            });
-
-
-            var config = new HubConfiguration
-            {
-                EnableDetailedErrors = true
-            };
         }
 
         private static ActorSystem CreateChatActorSystem(String name)

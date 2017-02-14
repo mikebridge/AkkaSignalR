@@ -106,6 +106,7 @@ class App extends Component {
         const disabled = !this.state.connectionid;
         return (
             <div>
+                <div>&nbsp;</div>
                 <Error message={this.state.error} color="red"/>
 
                 <div className="pa4-l">
