@@ -1,7 +1,7 @@
 ## SignalR and Akka.NET
 
-This is an example using Akka.NET, SignalR and ASP.Net Core 
-to accompany [this blog post](https://mikebridge.github.io/signalr-akka/).
+This is an example of how to use Akka.NET, SignalR and ASP.Net Core together.  
+It accompanies [this blog post](https://mikebridge.github.io/articles/signalr-akka/).
 
 ### Usage:
 
