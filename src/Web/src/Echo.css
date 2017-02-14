@@ -1,0 +1,3 @@
+input[type="submit"]:disabled {
+    cursor: progress;
+}
