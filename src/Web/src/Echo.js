@@ -115,7 +115,7 @@ class App extends Component {
                             <legend className="pa0 f5 f4-ns mb3 black-80">Send via SignalR</legend>
 
                             <div className="cf">
-                                <label className="clip" htmlFor="email-address">Email Address</label>
+                                <label className="clip" htmlFor="echo-text">Echo Text</label>
                                 <input className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"
                                        placeholder="Text"
                                        type="text"
